@@ -1,0 +1,67 @@
+@media (max-width: 450px) {
+
+    .view {
+        height: auto;
+        flex-direction: column;
+        margin-bottom: 50px;
+        margin-top: 5px;
+    }
+
+    .map-container {
+        display: block;
+        width: 90%;
+        margin: 10px 15px 5px 10px;
+    }
+
+    .itinerary-list {
+        flex: 0.6;
+        display: block;
+        width: 90%;
+        height: 50px;
+        margin: 0;
+        justify-content: center;
+    }
+
+    .itinerary-item {
+        height: 60px;
+    }
+
+    .arrival{
+        font-size: 13px;
+     }
+
+     .point-title {
+        font-size: 14px;
+        margin: 0 3px;
+        line-height: 1.5;
+     }
+     
+    .point-text {
+        font-size: 18px;
+    }
+
+    .end-time {
+       font-size: 13px;
+    }
+
+    .leg {
+        font-size: 13px;
+        padding: 1px 3px;
+    }
+
+    .control-area {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        margin: 10px 0;
+    }
+
+    #HomeButton,
+    #BackButton2 {
+        height: 50px;
+        width: 220px;
+
+    }
+
+}

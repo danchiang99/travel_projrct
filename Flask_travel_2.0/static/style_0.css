@@ -1,0 +1,254 @@
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+
+
+.fullscreen-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.fullscreen-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+
+
+.fullscreen-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+
+
+
+
+
+.hamburger-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 4px;
+    /* background-color: #ffffff; */
+    border-radius: 1px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.bar {
+    width: 35px;
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgb(207, 207, 207);
+    margin: 3px 0;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    /* ？ */
+    background-color: #5e5661;
+    overflow: hidden;
+    transition: 0.3s;
+    opacity: 85%;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 990;
+    white-space: nowrap;
+}
+
+
+.menu_items {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 130px 10px;
+}
+
+.menu_items li {
+    padding: 0 20px;
+    font-family: 'cwTeXFangSong';
+    font-size: 20px;
+    text-align: center;
+    line-height: 2.5;
+}
+
+.menu_items a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+h1 {
+    margin-bottom: 20px;
+    padding: 0;
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-family: 'Lobster-Regular';
+    position: absolute;
+    top: 45%;
+    color: white;
+    font-size: 35px;
+    letter-spacing: 5px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 80px; */
+    position: absolute;
+    top: 76%;
+}
+
+
+.custom-line1 {
+    height: 1px;
+    width: 250px;
+    background: linear-gradient(to right, transparent 0%, #888888 30%, #888888 70%, transparent 100%);
+    margin: 0 auto;
+}
+
+.go-choose {
+    position: relative;
+    margin-top: 35px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.custom-button,.custom-button:focus {
+    position: relative;
+    font-family: 'cwTeXFangSong';
+    font-size: 20px;
+    /* font-weight: bold; */
+    background: none;
+    border: none;
+    padding: 10px 50px;
+    margin: 0;
+    color: rgb(231, 231, 231);
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 3px;
+    line-height: 1.5;
+    box-shadow: inset 0 0 0 3px #c3d6ff;
+    transition: color 0.25s 0.0833333333s;
+    box-sizing: border-box;
+}
+
+
+.custom-button:before,
+.custom-button:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    border: 0 solid transparent;
+    box-sizing: border-box;
+}
+.custom-button:before {
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+}
+.custom-button:after {
+    border-top-width: 3px;
+    border-right-width: 3px;
+}
+.custom-button:hover {
+    color: #ffffff;
+}
+.custom-button:hover:before,
+.custom-button:hover:after {
+    border-color: #62b9ff;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+.custom-button:hover:before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+.custom-button:hover:after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+@media (max-width: 450px) {
+    
+    h1{
+        font-size: 33px;
+        top: 290px;
+    }
+
+    .sidebar {
+        opacity: 93%;
+    }
+
+    .go-planning {
+        margin-top: 25px;
+    }
+
+    .custom-button {
+        line-height:1.5;
+    }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>可移動光箱示例</title>
+    <style>
+        /* 光箱外觀 */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            /* 初始狀態在左側隱藏 */
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            transition: left 0.3s ease-in-out;
+        }
+
+        /* 光箱中的內容區域 */
+        #lightboxContent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* 按鈕樣式 */
+        #prevButton,
+        #nextButton {
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        /* 隱藏光箱 */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openLightbox">點擊打開光箱</button>
+
+    <div id="lightbox" class="hidden">
+        <button id="closeLightbox">關閉</button>
+        <div id="lightboxContent">
+            <img src="img/background-01.png" alt="圖片1">
+            <img src="img/background-02.png" alt="圖片2">
+        </div>
+        <button id="prevButton">上一張</button>
+        <button id="nextButton">下一張</button>
+    </div>
+
+    <script>
+        var openBtn = document.getElementById("openLightbox");
+        var lightbox = document.getElementById("lightbox");
+        var closeBtn = document.getElementById("closeLightbox");
+        var prevBtn = document.getElementById("prevButton");
+        var nextBtn = document.getElementById("nextButton");
+        var lightboxContent = document.getElementById("lightboxContent").children;
+        var currentIndex = 0;
+
+        openBtn.addEventListener("click", function () {
+            lightbox.style.left = "0";
+            currentIndex = 0;
+            updateContent();
+        });
+
+        closeBtn.addEventListener("click", function () {
+            lightbox.style.left = "-300px";
+        });
+
+        function updateContent() {
+            for (var i = 0; i < lightboxContent.length; i++) {
+                lightboxContent[i].style.display = "none";
+            }
+            lightboxContent[currentIndex].style.display = "block";
+        }
+
+        prevBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex - 1 + lightboxContent.length) % lightboxContent.length;
+            updateContent();
+        });
+
+        nextBtn.addEventListener("click", function () {
+            currentIndex = (currentIndex + 1) % lightboxContent.length;
+            updateContent();
+        });
+
+    </script>
+</body>
+
+</html>

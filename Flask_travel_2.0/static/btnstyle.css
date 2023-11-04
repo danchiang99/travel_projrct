@@ -1,0 +1,51 @@
+.btn,
+.btn:focus {
+    position: relative;
+    min-width: 200px;
+    background: none;
+    border: none;
+    color: #12191b;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: inset 0 0 0 4px #777a7a;
+    transition: color 0.25s 0.0833333333s;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.btn:before,
+.btn:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+    border: 0 solid transparent;
+    box-sizing: border-box;
+}
+.btn:before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+.btn:after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+.btn:hover {
+    color: #52514f;
+}
+.btn:hover:before,
+.btn:hover:after {
+    border-color: #FD5E53;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+.btn:hover:before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+.btn:hover:after {
+    transition-delay: 0s, 0.25s, 0s;
+}

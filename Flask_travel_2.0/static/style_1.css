@@ -1,0 +1,202 @@
+/* div {
+    border: 1px solid red;
+    box-sizing: border-box;
+} */
+
+h1 {
+    /* font-family: 'Lobster-Regular'; */
+    font-family: 'cwTeXFangSong';
+}
+
+.custom-line1 {
+    height: 1px;
+    width: 250px;
+    background: linear-gradient(to right, transparent 0%, #5b545e 30%, #5b545e 70%, transparent 100%);
+    margin: 0 auto;
+}
+
+.input-container {
+    box-sizing: border-box;
+    font-family: 'cwTeXFangSong';
+    margin: 70px 0 20px;
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    /* 水平置中 */
+    padding: 10px 0;
+}
+
+.block1 {
+    margin-right: 50px;
+    /* padding: 10px 0; */
+    text-align: center;
+}
+
+.block2 {
+    /* border: 1px red solid; */
+    margin: 0 90px;
+    /* padding: 10px 0; */
+    text-align: center;
+}
+
+.block1-1 {
+    text-align: center;
+}
+
+.block1-2 {
+    padding-top: 30px;
+    text-align: center;
+}
+
+.choice-date,
+.choice-time,
+.choice-area {
+    font-family: 'cwTeXFangSong';
+    font-size: 18px;
+    margin: 0 30px;
+}
+
+
+input[type="date"],
+select[name="time"] {
+    font-family: 'cwTeXFangSong';
+    font-size: 24px;
+    letter-spacing: 4px;
+    border: none;
+    outline: none;
+    width: 200px;
+    margin: 10px 0 5px;
+    /* border: solid 1px blue; */
+    /* border: none; */
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+.choice-area option {
+    font-size: 20px;
+}
+
+
+select[name="region"] {
+    font-family: 'cwTeXFangSong';
+    font-size: 32px;
+    letter-spacing: 3px;
+    border: none;
+    outline: none;
+    width: 200px;
+    margin-top: 30px;
+    /* border: solid 1px blue; */
+    /* border: none; */
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+
+.choice-area option {
+    font-size: 28px;
+
+}
+
+
+.custom-line2 {
+    height: 0.3px;
+    width: 870px;
+    /* background: linear-gradient(to right, transparent 0%, #7A707D 20%, #7A707D 80%, transparent 100%); */
+    background-color: #a298a5;
+    margin: 0 auto;
+}
+
+.choice-type {
+    font-family: 'cwTeXFangSong';
+    position: absolute;
+    font-size: 18px;
+    color: rgb(175 103 11);
+    letter-spacing: 2px;
+    font-weight: bold;
+    top: -40px;
+    transform: translate(0%, -50%);
+}
+
+
+
+
+div .checkboxes {
+    margin: 90px 100px 50px;
+    /* padding: 10px; */
+    /* 調整選項區塊與上方的間距 */
+    /* background-color: #F5F2EB; */
+    justify-content: center;
+    place-items: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+    position: relative;
+    top: 15px;
+}
+
+.checkboxes label {
+    font-family: 'cwTeXFangSong';
+    font-size: 18px;
+    font-weight: lighter;
+    width: 100px;
+    height: 35px;
+    padding: 1px 5px;
+    margin: 10px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F2EB;
+    border: solid 1px #7A707D;
+    letter-spacing: 2px;
+}
+
+/* 設定已選中的自定義樣式 */
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked+label {
+    background-color: #F2D7FA;
+    border-color: #7A707D;
+}
+
+.submitBtn {
+    height: 110px;
+    /* border: solid 2px red; */
+    /* padding-top: 60px; */
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+.submitBtn_goanalysisl {
+    height: 110px;
+    /* border: solid 2px red; */
+    /* padding-top: 60px; */
+    display: flex;
+    align-items: center;
+    /* 垂直置中 */
+    justify-content: center;
+    margin-bottom: auto;
+}
+
+
+.submitBtn button {
+    font-family: 'cwTeXFangSong';
+    font-size: 24px;
+    font-style: italic;
+    border: solid 1px #7A707D;
+    width: 170px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

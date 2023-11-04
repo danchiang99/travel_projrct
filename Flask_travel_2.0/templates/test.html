@@ -1,0 +1,21 @@
+
+<html>
+<head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<div id="plotly-div"></div>
+
+<script type="text/javascript">
+    // 從後端獲取的JSON數據
+    var graphs_1 = {{ graphJSON_1 | safe }};
+    var graphs_2 = {{ graphJSON_2 | safe }};
+    
+    // 使用Plotly.js在指定div中渲染圖形
+    Plotly.newPlot('plotly-div', graphs_1.data, graphs_1.layout);
+    Plotly.newPlot('plotly-div', graphs_2.data, graphs_2.layout);
+</script>
+
+</body>
+</html>

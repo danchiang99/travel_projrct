@@ -1,0 +1,47 @@
+.block-plot{
+    flex-direction: column;
+    height: 100%;
+}
+
+
+.div-top, .div-bottom {
+    flex: 1;
+    display: flex; 
+    flex-direction: row; 
+    padding: 10px;
+    max-height: 270px;
+}
+.plot-div,.opentime-div{
+    width: 100%;
+    margin:5px;
+}
+
+.top3-div {
+    background-color: transparent;
+    padding: 5px;
+}
+.top3-div p{
+    margin: 5px 0;
+}
+
+
+
+
+@media (max-width: 450px) {
+    .block-plot {
+        height: auto; 
+        width: 100vw;
+    }
+
+    .div-top, .div-bottom {
+        flex-direction: column;
+        padding: 10px;
+        max-width: 100%;
+        max-height: none; 
+    }
+
+    .plot-div,.opentime-div,.pie-div,.top3-div{
+        max-width: 90%;
+    }
+
+}

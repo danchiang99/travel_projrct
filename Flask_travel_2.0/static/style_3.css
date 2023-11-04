@@ -1,0 +1,256 @@
+ /* div {
+    border: solid 1px red;
+}  */
+
+ * {
+     margin: 0;
+     padding: 0;
+ }
+
+ h1 {
+     font-family: 'cwTeXFangSong';
+ }
+
+ .view {
+     display: flex;
+     height: 450px;
+     position: relative;
+ }
+
+ .map-container {
+     display: inline-block;
+     width: 600px;
+     height: 420px;
+     margin: 20px 10px 20px 15px;
+     border: 1px solid silver;
+     border-right: 5px solid #746879;
+     /* padding: 10px; */
+     overflow: hidden;
+     position: relative;
+ }
+
+ .itinerary-list {
+     display: inline-block;
+     width: 260px;
+     height: 380px;
+     margin-left: 10px;
+     margin-top: 10px;
+     margin-bottom: auto;
+     /* border: solid 1px blue; */
+     padding: 10px;
+ }
+
+
+ .itinerary {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     display: flex;
+     flex-direction: column;
+ }
+
+ .itinerary-item {
+     display: flex;
+     box-sizing: border-box;
+     list-style: none;
+     position: relative;
+     border: solid 1px #bab2bd;
+     background-color: #F5F2EB;
+     border-radius: 7px;
+     height: 70px;
+     padding: 5px 3px 3px 3px;
+     flex-direction: row;
+     align-items: center;
+ }
+
+ .left-div {
+     position: relative;
+     text-align: center;
+     flex: 1.1;
+     font-size: 14px;
+     height: 100%;
+     padding: 3px 0;
+     border-right: solid 2px #ccc5cf;
+ }
+
+ .right-div {
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex: 1.9;
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     padding: 3px 0;
+ }
+
+ .arrival{
+    color: green;
+ }
+
+ .point-text {
+     font-size: 20px;
+     font-weight: bolder;
+     text-align: center;
+     /* margin-left: 5px; */
+ }
+
+ .end-time {
+     position: absolute;
+     color: red;
+     bottom: 0;
+     right: 3px;
+     margin-top: 3px;
+ }
+
+ .point-title {
+     list-style: none;
+     font-size: 15px;
+     font-weight: bolder;
+     padding: 0;
+     margin-bottom: 5px;
+     text-align: center;
+     position: absolute;
+     top: 50%; 
+     transform: translateY(-50%);
+ }
+
+
+
+ .leg {
+    font-size: 14px;
+     list-style: none;
+     text-align: center;
+     position: absolute;
+     padding: 0 3px;
+     bottom: -12px;
+     right: 0;
+     z-index: 100;
+     font-weight: bold;
+     color: white;
+     background-color: rgba(92, 92, 92, 0.5);
+ }
+
+ .leg a{ 
+        color: rgb(14, 59, 207); 
+        cursor: pointer; 
+ }
+
+
+ .control-area {
+     height: 110px;
+     /* border: solid 2px red; */
+     /* padding-top: 60px; */
+     display: flex;
+     align-items: center;
+     /* 垂直置中 */
+     justify-content: center;
+     margin-bottom: auto;
+     grid-gap: 40px;
+ }
+
+ #HomeButton,
+ #BackButton2 {
+     font-family: 'cwTeXFangSong';
+     font-size: 24px;
+     font-style: italic;
+     border: solid 1px #7A707D;
+     width: 170px;
+     height: 40px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+ }
+
+ .homeBtn a{
+    text-decoration: none;
+ }
+
+
+
+ #Navigation {
+     background-color: #e0aba2;
+ }
+
+
+ .custom-dialog {
+     display: none;
+     /* 初始狀態下隱藏對話框 */
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 1000;
+     align-items: center;
+     justify-content: center;
+     opacity: 0;
+     animation: fadeIn 0.5s ease forwards;
+ }
+
+
+ @keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+
+     100% {
+         opacity: 1;
+     }
+ }
+
+ .dialog-content {
+    border: #383838 1px solid;
+    position: relative;
+    width: 300px;
+    height: 150px;
+    background-color: rgb(235, 235, 235);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+
+}
+
+
+ .confirm-button {
+     display: block;
+     width: 100%;
+     justify-content: center;
+     position: absolute;
+     margin: 10px 0;
+     bottom: 0;
+     text-align: center;
+ }
+
+ .dialog-content p {
+     font-size: 18px;
+     font-weight: bold;
+     position: absolute;
+     top: 60px;
+     display: block;
+     text-align: center;
+ }
+
+ .button-style {
+    padding: 5px 10px;
+    margin: 0 3px 2px 3px;
+    cursor: pointer;
+    width: 155px;
+    height: 35px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(150, 150, 150);
+}
+
+
+.lunch-dinner {
+    color: #d30000;
+    letter-spacing: 10px;
+}
+

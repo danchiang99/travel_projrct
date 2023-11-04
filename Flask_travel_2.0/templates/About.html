@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_small.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font.css') }}">
+
+    <!-- <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="font.css"> -->
+</head>
+
+<body>
+    <nav class="menu-nav">
+        <div class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul class="menu_items">
+                <li><a href="/" class="menu_item">首頁</a></li>
+                <li><a href="/choose" class="menu_item">規劃行程</a></li>
+                <li><a href="/datachart" class="menu_item">數據圖表</a></li>
+                <li><a href="/model" class="menu_item">模型</a></li>
+                <li><a href="/about" class="menu_item">關於我們</a></li> 
+            </ul>
+        </div>
+    </nav>
+    <div class="div-block">
+        <button class="prev-btn">➤</button>
+        <div class="lightbox-container">
+            <div class="lightbox-content">
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_1.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>姜鑫德</h3><br>
+                        <li>網路爬蟲</li>
+                       <li>資料前處理</li>
+                       <li>機器/深度學習</li> 
+                       <li>資料分析</li> 
+                        </div>              
+                    </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_2.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>許豐繹</h3><br><br>
+                        <li>機器/深度學習</li>
+                        <li>資料前處理</li>
+                        <li>平台建置</li></div>                  
+                    </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_3.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>藍浩翔</h3><br><br>
+                        <li>平台建置</li>
+                        <li>視覺化呈現</li>
+                        <li>最佳路徑</li></div>                 
+                </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_4.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>周庭瑋</h3><br>
+                        <li>最佳路徑</li>
+                        <li>網路爬蟲</li>
+                        <li>資料分析</li>
+                        <li>視覺化呈現</li></div>                 
+                    </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_5.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>賴盈縈</h3><br><br>
+                        <li>視覺化呈現</li>
+                        <li>資料分析</li>
+                        <li>最佳路徑</li></div>                 
+                    </div>
+                <div class="member">
+                    <img src="{{ url_for('static', filename='/img/member_6.jpg') }}" alt="圖片">
+                    <br>
+                    <div class="name"><h3>張博淵</h3><br>
+                        <li>機器/深度學習</li>
+                        <li>資料前處理</li>
+                        <li>資料分析</li>
+                        <li>平台建置</li></div>                 
+                    </div>
+            </div>
+
+        </div>
+        <button class="next-btn">➤</button>
+    </div>
+    <script src="{{ url_for('static', filename='jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='about.js') }}"></script>
+</body>
+
+</html>

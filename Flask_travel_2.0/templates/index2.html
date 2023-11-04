@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon.png', _external=True, _scheme='https') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_small.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_2small.css') }}">
+</head>
+
+<body>
+    <input type="hidden" name="data_to_send_back" value="{{ input_data }}">
+    <nav class="menu-nav">
+        <div class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul class="menu_items">
+                <li><a href="/" class="menu_item">首頁</a></li>
+                <li><a href="/choose" class="menu_item">規劃行程</a></li>
+                <li><a href="/datachart" class="menu_item">數據圖表</a></li>
+                <li><a href="/model" class="menu_item">模型</a></li>
+                <li><a href="/about" class="menu_item">關於我們</a></li> 
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="container"> -->
+    <div class="div-block">
+        <h1>選擇景點</h1>
+        <div class="custom-line1"></div>
+        <div class="choice-container">
+            <div class="point-view" id="pointView">
+                <ul class="lightbox-content">
+                    {% for i in range(50) %}
+                    {% if i < dataframe.shape[0] %} <li class="data-item" data-id="{{ i+1 }}">
+                        <img src="{{ dataframe['img'][i] }}" alt="景點圖片">
+                        <div>
+                            <p class="point-title">{{ dataframe['name'][i] }}</p>
+                            <p class="point-text">
+                                評分：{{ dataframe['new_star_label'][i] }}
+                                <br>
+                                所在地：{{ dataframe['rw_city'][i] }}{{ dataframe['rw_town'][i] }}<span>&nbsp;&nbsp;&nbsp;&nbsp;{{
+                                    dataframe['big_lab'][i] }}>>{{dataframe['new_cate3'][i] }}</span>
+                                <br>
+                                推薦停留時間：{{ dataframe['stay_time_min'][i] }} 分鐘
+                            </p>
+                        </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                </ul>
+            </div>
+            <!-- <button class="prev-btn">▲</button>
+            <button class="next-btn">▼</button> -->
+            <!-- <button type="button" class="refresh-btn" id="refreshButton">Ｒ</button> -->
+            <div class="select-view">
+                <ul id="selectPoints" class="select-points">
+                </ul>
+                <div id="totalStayTime">總旅程時間：0 分鐘</div>
+                <div class="notification">超過可規劃的最大範圍!</div>
+            </div>
+        </div>
+        <p class="hint-word">請選擇3~5個景點!</p>
+        <div class="control-area ">
+            <div class="backBtn">
+                <button type="submit" id="BackButton" value="back">Back</button>
+            </div>
+            <form action="/route" method="post" id="searchForm">
+                <input type="hidden" name="input_data" value="{{ input_data }}">
+                <input type="hidden" name="travel_date" value="{{ travel_date }}">
+                <input type="hidden" name="travel_region" value="{{ travel_region }}">
+                <input type="hidden" name="travel_time" value="{{ travel_time }}">
+                <input type="hidden" name="df_to_send_back" value="{{ df_json }}">
+                <input type="hidden" name="selected_items" id="selectedItemsInput">
+                <button type="submit" id="SubmitButton" value="ok" disabled>Planning</button>
+                <div id="selectedTextContainer"></div>
+            </form>
+        </div>
+
+        <img src="{{ url_for('static', filename='/img/background-02.png') }}" alt="" class="backImg">
+    </div>
+    <!-- test -->
+    <div id="custom-dialog1" class="custom-dialog">
+        <div class="dialog-content">
+            <p>確定要刪除嗎？</p>
+            <div class="confirm-button">
+                <button id="confirm-yes" class="button-style">確認</button>
+                <button id="confirm-no" class="button-style">取消</button>
+            </div>
+        </div>
+    </div>
+    <div id="custom-dialog2" class="custom-dialog">
+        <div class="dialog-content">
+            <p>確定要返回嗎？</p>
+            <div class="confirm-button">
+                <button id="confirm-yes2" class="button-style">確認</button>
+                <button id="confirm-no2" class="button-style">取消</button>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+      </div>
+    <div class="footer"></div>
+    <!-- </div> -->
+    <script src="{{ url_for('static', filename='jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='index_2.js') }}"></script>
+    <!-- <script src="lightbox_test.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon.png', _external=True, _scheme='https') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_small.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_3small.css') }}">
+</head>
+
+<body>
+    <nav class="menu-nav">
+        <div class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul class="menu_items">
+                <li><a href="/" class="menu_item">首頁</a></li>
+                <li><a href="/choose" class="menu_item">規劃行程</a></li>
+                <li><a href="/datachart" class="menu_item">數據圖表</a></li>
+                <li><a href="/model" class="menu_item">模型</a></li>
+                <li><a href="/about" class="menu_item">關於我們</a></li> 
+            </ul>
+        </div>
+    </nav>
+    <div class="div-block">
+        
+        <h1>建議行程</h1>
+        {{ message }}
+        <div class="custom-line1"></div>
+        <div class="view">
+            <div class="map-container">
+                <!-- google地圖 -->
+                <div id="map" style="height: 450px;"></div>
+            </div>
+
+            <div class="itinerary-list">
+                <ul class="itinerary">
+                    <!-- 時間行程etc -->
+                    <!-- 原版 -->
+                    <!-- <div id='table1' style="text-align: center;">
+                    {{ df_optimal_route_for_flask['optimal_order_name'][1] | safe }}-->
+                    <!-- 測試 -->
+                    {% for i in range(df_optimal_route_for_flask['optimal_order_name']|length) %}
+                    <li class="itinerary-item">
+                        <div class="left-div">
+                            <p class="arrival">抵達</p>
+                            <p class="point-text">{{ df_optimal_route_for_flask['starttime'][i] | safe }}</p>
+                            <p class="end-time">
+                                ～{{ df_optimal_route_for_flask['endtime'][i] | safe }}
+                            </p>
+                        </div>
+                        <div class="right-div">
+                            <p class="point-title">{{ df_optimal_route_for_flask['optimal_order_name'][i] | safe }}</p>
+                            {% if not loop.last %}
+                            <p class="leg">
+                                交通時間: <a href="{{ df_optimal_route_for_flask['navi_link'][i+1] | safe }}" target="_blank">
+                                    {{ df_optimal_route_for_flask['leg'][i+1] | safe }}分
+                                </a>
+                            </p>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% endfor %}
+
+
+                </ul>
+            </div>
+        </div>
+        <div class="control-area ">
+            <div class="backBtn">
+                <button type="button" id="BackButton2" value="back">Back</button>
+            </div>
+
+            <div class="homeBtn">
+                    <button type="submit" id="HomeButton" value="ok">Home</button>
+                    <div id="selectedTextContainer"></div>
+            </div>
+
+        </div>
+        <img src="{{ url_for('static', filename='/img/background-02.png') }}" alt="" class="backImg">
+
+        <div id="custom-dialog3" class="custom-dialog">
+            <div class="dialog-content">
+                <p>確定要返回嗎？</p>
+                <div class="confirm-button">
+                    <button id="confirm-yes3" class="button-style">確認</button>
+                    <button id="confirm-no3" class="button-style">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="custom-dialog4" class="custom-dialog">
+            <div class="dialog-content">
+                <p>確定要回首頁嗎？</p>
+                <div class="confirm-button">
+                    <button id="confirm-yes4" class="button-style">確認</button>
+                    <button id="confirm-no4" class="button-style">取消</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer"></div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ YOUR_API_KEY }}&callback=initMap" async
+            defer></script>
+        <script>
+            var originLat = {{ origin_lat }};
+            var originLng = {{ origin_lng }};
+            var destinationLat = {{ destination_lat }};
+            var destinationLng = {{ destination_lng }};
+
+
+            var waypointsData = [
+                {% for waypoint in waypoints %}
+            { latitude: {{ waypoint.latitude }}, longitude: {{ waypoint.longitude }} },
+            {% endfor %}
+    ];
+
+        </script>
+
+
+        <script src="{{ url_for('static', filename='jquery-3.7.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+        <script src="{{ url_for('static', filename='index_3.js') }}"></script>
+</body>
+
+</html>

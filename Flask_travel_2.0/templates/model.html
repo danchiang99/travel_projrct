@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon.png', _external=True, _scheme='https') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_1.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_small.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='btnstyle.css') }}">
+    
+    <style>
+        
+        .img-container img {
+            display: none;
+            /* 隱藏所有圖片 */
+            max-width: 300px;
+            /* 設置圖片最大寬度，可依需要調整 */
+        }
+
+        .block3{
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-comment{
+            font-size: 26px;
+            font-family: 'cwTeXFangSong';
+        }
+
+        form{
+            width: 100%;
+        }
+
+        .div-textarea{
+            /* display: flex; */
+            margin-top: 20px;
+            justify-content: center; 
+            width: 100%;       
+        }
+        textarea{
+            width: 70%;
+            text-align:center;
+        }
+
+        .example{
+            border-width:2px;
+            border-style:dashed;
+            border-color:#ff8b55;
+            background-color: rgba(255, 255, 255, 0.3);
+            padding:10px;
+            margin: 50px 20px 10px 20px;
+            width: auto;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="menu-nav">
+        <div class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul class="menu_items">
+                <li><a href="/" class="menu_item">首頁</a></li>
+                <li><a href="/choose" class="menu_item">規劃行程</a></li>
+                <li><a href="/datachart" class="menu_item">數據圖表</a></li>
+                <li><a href="/model" class="menu_item">模型</a></li>
+                <li><a href="/about" class="menu_item">關於我們</a></li> 
+            </ul>
+        </div>
+    </nav>
+    <!-- <div class="container"> -->
+    <div class="div-block">
+
+        <h1>Model</h1>
+        <div class="custom-line1"></div>
+        <!-- 展示星等評分模型 START-->
+        <div class="block3">
+            <br><br><br>
+            <form action="/commentresult" method="post" id="commentform">
+                <label class="input-comment" for="comment">星等評分模型</label>
+                <br>
+                <br>
+                <div class="div-textarea">
+                <textarea rows="4" cols="70" name="comment" form="commentform" maxlength="135" minlength="1"
+                placeholder="請輸入評論..." onfocus="if(this.value=='很棒的地方，希望不要太多人知道，抱歉只能給1星了') this.value='';"
+                onblur="if(this.value=='') this.value='很棒的地方，希望不要太多人知道，抱歉只能給1星了';">很棒的地方，希望不要太多人知道，抱歉只能給1星了</textarea>
+                </div>
+                <br>
+                <br>
+                <span id="starresult"></span>
+                <div class="submitBtn_goanalysisl">
+                    <button type="submit" id="SubmitButton" value="Go" href="javascript: void(0)"
+                        class="btn">submit</button>
+                </div>
+            </form>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const form = document.getElementById('commentform');
+                    const resultDiv = document.getElementById('starresult');
+
+                    form.addEventListener('submit', function (event) {
+                        event.preventDefault(); // 防止表單提交刷新頁面
+
+                        const formData = new FormData(form);
+
+                        fetch('/commentresult', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(response => response.text()) // 假設伺服器回傳文本
+                            .then(data => {
+                                resultDiv.innerHTML = data; // 將伺服器回傳的結果設定為<div id="result"></div>的內容
+                            })
+                            .catch(error => {
+                                console.error('發生錯誤：', error);
+                            });
+                    });
+                });
+            </script>
+            <div class="example">
+                <span>可以用下方評論，測試評分結果：</span><br><br>
+                <span>很棒的地方，希望不要太多人知道，抱歉只能給1星了</span><br>
+                <span>這麼爛的景點，一定給5星呀，不能只有我來浪費時間，需要讓更多人來笑笑</span><br>
+            </div>
+        </div>
+        <!-- 展示星等評分模型 END-->
+
+        <img src="{{ url_for('static', filename='/img/background-02.png') }}" alt="" class="backImg">
+    </div>
+
+    <div class="footer"></div>
+    <script src="{{ url_for('static', filename='jquery-3.7.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='datachart.js') }}"></script>
+</body>
+
+</html>

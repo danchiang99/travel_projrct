@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地圖呈現API比較</title>
+</head>
+
+<body>
+    <!-- API1: Embed -->
+    <h3>1. Maps Embed API</h3>
+    <iframe width="800" height="600" style="border:0;" loading="lazy" allowfullscreen
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBCvLLBlU2rcJBucgCd5VZ2D7oVDJ3YERg&origin=25.010599,121.533263&destination=25.050884,121.577499&waypoints=24.998563,121.580986|25.038611,121.559753|25.056128,121.507428&zoom=13"></iframe>
+
+    <hr>
+    <!-- API2: JavaScript -->
+    <h3>2. Maps JavaScript API</h3>
+    <div id="map" style="width: 800px; height: 600px;">
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCvLLBlU2rcJBucgCd5VZ2D7oVDJ3YERg&callback=initMap"
+            async defer></script>
+        <script>
+            function initMap() {
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    center: { lat: 25.010599, lng: 121.533263 },
+                    zoom: 13,
+                });
+
+                const directionsService = new google.maps.DirectionsService();
+                const directionsRenderer = new google.maps.DirectionsRenderer({
+                    map: map,
+                });
+
+                const request = {
+                    origin: { lat: 25.010599, lng: 121.533263 },
+                    destination: { lat: 25.050884, lng: 121.577499 },
+                    waypoints: [
+                        { location: { lat: 24.998563, lng: 121.580986 } },
+                        { location: { lat: 25.038611, lng: 121.559753 } },
+                        { location: { lat: 25.056128, lng: 121.507428 } },
+                    ],
+                    travelMode: google.maps.TravelMode.DRIVING,
+                };
+
+                directionsService.route(request, function (result, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsRenderer.setDirections(result);
+                    }
+                });
+
+                const startingMarker = new google.maps.Marker({
+                    position: { lat: 25.010599, lng: 121.533263 },
+                    map: map,
+                    title: "Starting Point",
+                });
+
+                const destinationMarker = new google.maps.Marker({
+                    position: { lat: 25.050884, lng: 121.577499 },
+                    map: map,
+                    title: "Destination",
+                });
+
+                // Add more markers for waypoints if needed
+
+            }
+        </script>
+    </div>
+</body>
+
+</html>

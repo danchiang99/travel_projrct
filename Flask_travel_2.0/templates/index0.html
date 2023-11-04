@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='/img/icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='img/icon.png', _external=True, _scheme='https') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_0.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='btnstyle.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='font.css') }}">
+</head>
+
+<body>
+    <nav class="menu-nav">
+        <div class="hamburger-btn" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="sidebar" id="sidebar">
+            <ul class="menu_items">
+                <li><a href="/" class="menu_item">首頁</a></li>
+                <li><a href="/choose" class="menu_item">規劃行程</a></li>
+                <li><a href="/datachart" class="menu_item">數據圖表</a></li>
+                <li><a href="/model" class="menu_item">模型</a></li>
+                <li><a href="/about" class="menu_item">關於我們</a></li> 
+            </ul>
+        </div>
+    </nav>
+
+    <h1>Welcome</h1>
+    <br>
+    <!-- <div class="photo">
+    </div> -->
+    <div class="container">
+        <div class="custom-line1"></div>
+        <div class="go-choose">
+            <a href="/choose">
+                <button class="custom-button">開始規劃<br>旅遊行程</button>
+            </a>
+        </div>
+    </div>
+    <div class="fullscreen-bg">
+        <img src="{{ url_for('static', filename='/img/background-03.jpg') }}" alt="">
+    </div>
+
+    <!-- <div class="footer"></div> -->
+
+    <script src="{{ url_for('static', filename='jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+    <script src="{{ url_for('static', filename='index_0.js') }}"></script>
+</body>
+
+</html>
